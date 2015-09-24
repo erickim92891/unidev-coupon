@@ -1,0 +1,22 @@
+{
+  "firebase": "uni-dev",
+  "public": ".",
+  "ignore": [
+    "firebase.json",
+    "**/node_modules/**",
+	"public/**",
+	"config/**",
+	"helpers/**",
+	"tasks/**",
+	"tests/**",
+	"http-server/**",
+	"package.json",
+	"gulpfile.js",
+	".jshintrc",
+	"bower.json"
+  ],
+  "rewrites": [{
+    "source": "**",
+    "destination": "/index.html"
+  }]
+}

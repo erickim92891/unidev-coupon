@@ -1,0 +1,6 @@
+bower_components
+config/private
+dist
+http-server
+node_modules
+index.html
