@@ -4,3 +4,4 @@ dist
 http-server
 node_modules
 index.html
+!public/templates/*
