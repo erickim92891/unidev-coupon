@@ -20,13 +20,15 @@
 						url: '/register',
 						views: {
 							'navbar': {
-								templateUrl: 'app/welcome/welcome.navbar.template.html'
+								template: '<widget-default-navbar></widget-default-navbar>'	
 							},
 							'body': {
-								templateUrl: 'app/register/register.form.template.html'
+								templateUrl: 'app/register/register.form.template.html',
+								controller: 'registerFormCtrl',
+								controllerAs: 'vm'
 							},
 							'footer': {
-								templateUrl: 'app/welcome/welcome.footer.template.html'
+								template: '<widget-default-footer></widget-default-footer>'
 							}
 						}
 					}

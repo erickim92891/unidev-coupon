@@ -20,13 +20,15 @@
 						url: '/login',
 						views: {
 							'navbar': {
-								templateUrl: 'app/welcome/welcome.navbar.template.html'
+								template: '<widget-default-navbar></widget-default-navbar>'
 							},
 							'body': {
-								templateUrl: 'app/login/login.form.template.html'
+								templateUrl: 'app/login/login.form.template.html',
+								controller: 'loginFormCtrl',
+								controllerAs: 'vm'
 							},
 							'footer': {
-								templateUrl: 'app/welcome/welcome.footer.template.html'
+								template: '<widget-default-footer></widget-default-footer>'
 							}
 						}
 					}

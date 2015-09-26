@@ -5,6 +5,7 @@
 			'welcome',
 			'register',
 			'login',
-			'templates'
+			'templates',
+			'widgets'
 		]);
 }) ();

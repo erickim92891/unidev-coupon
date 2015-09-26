@@ -21,13 +21,14 @@
 						url: '/',
 						views: {
 							'navbar': {
-								templateUrl: 'app/welcome/welcome.navbar.template.html'
+								//templateUrl: 'app/widgets/navbar/default.navbar.template.html'
+								template: '<widget-default-navbar></widget-default-navbar>'
 							},
 							'body': {
 								templateUrl: 'app/welcome/welcome.body.template.html'
 							},
 							'footer': {
-								templateUrl: 'app/welcome/welcome.footer.template.html'
+								template: '<widget-default-footer></widget-default-footer>'
 							}
 						}
 					}
