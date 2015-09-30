@@ -32,18 +32,17 @@
 		 * @memberOf Blocks.Exception
 		 */
         function Catcher(message) {
-            return function (e) {
-                var thrownDescription;
-                var newMessage;
-                
-				if (e.data && e.data.description) {
-                    thrownDescription = '\n' + e.data.description;
-                    newMessage = message + thrownDescription;
-                }
-                e.data.description = newMessage;
+            return function (reason) {
+				var newMessage;
+				
+				if (message) {
+					newMessage = message + "<br />" + reason;
+				} else {
+					newMessage = reason;
+				}
+				
                 $logger.error (newMessage);
-                
-				return $q.reject (e);
+				return $q.reject (reason);
             };
         }
     }
