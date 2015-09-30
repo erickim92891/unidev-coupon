@@ -6,7 +6,7 @@
 		.run (RegisterRoutes);
 	
 	RegisterRoutes.$inject = [
-		'routerHelper',
+		'routerHelper'
 	];
 	
 	function RegisterRoutes (routerHelper) {
