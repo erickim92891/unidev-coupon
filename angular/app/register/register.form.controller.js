@@ -6,10 +6,14 @@
 		.controller ('registerFormCtrl', RegisterForm);
 	
 	RegisterForm.$inject = [
-		'$auth'	
+		'$auth',
+		'$state',
+		'$logger',
+		'$authMessages',
+		'$exception'
 	];
 	
-	function RegisterForm ($auth) {
+	function RegisterForm ($auth, $state, $logger, $authMessages, $exception) {
 		var vm = this;
 		var auth = $auth;
 		
@@ -17,21 +21,20 @@
 		vm.register = Register;
 		
 		function Register () {
-			console.log ('test');
-			var credentials = vm.credentials;
 			
-			auth.$createUser (credentials)
+			var errorMsg = $authMessages.AUTH_REGISTER_FAILED;
+			
+			auth.$createUser (vm.credentials)
 				.then (function (user) {
-					console.log ('User: ' + user.uid + " created successfully!");
-					return auth.$authWithPassword (credentials); 
+					errorMsg = $authMessages.AUTH_LOGIN_FAILED;
+					$logger.success ($authMessages.AUTH_REGISTER_SUCCESS);
+				
+					return auth.$authWithPassword (vm.credentials); 
 				})
 				.then (function (user) {
-					console.log ('Logged in as...');
-					console.log (user);
+					$state.transitionTo ('dashboard');
 				})
-				.catch (function (error) {
-					console.log( 'error');
-				});
+				.catch ($exception.catcher (errorMsg));
 		}
 	}
 }) ();

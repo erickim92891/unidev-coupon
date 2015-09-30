@@ -6,10 +6,14 @@
 		.controller ('loginFormCtrl', LoginForm);
 	
 	LoginForm.$inject = [
-		'$auth'
+		'$auth',
+		'$state',
+		'$logger',
+		'$authMessages',
+		'$exception'
 	];
 	
-	function LoginForm ($auth) {
+	function LoginForm ($auth, $state, $logger, $authMessages, $exception) {
 		var vm = this;
 		var auth = $auth;
 		
@@ -19,12 +23,10 @@
 		function Login () {
 			auth.$authWithPassword (vm.credentials)
 				.then (function (user) {
-					console.log ("Success Login: ");
-					console.log (user);
+					$logger.success ($authMessages.AUTH_LOGIN_SUCCESS);
+					$state.transitionTo ('dashboard');
 				})
-				.catch (function (error) {
-					console.log(error);
-				});
+				.catch ($exception.catcher ($authMessages.AUTH_LOGIN_FAILED));
 		}
 	}
 }) ();
