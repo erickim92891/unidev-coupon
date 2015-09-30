@@ -1,0 +1,7 @@
+#login-form {
+	height: 800px;
+}
+
+#login-form .column {
+  max-width: 450px;
+}
