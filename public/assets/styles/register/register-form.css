@@ -1,0 +1,6 @@
+#register-form {
+  height: 800px;
+}
+#register-form .column {
+  max-width: 450px;
+}
