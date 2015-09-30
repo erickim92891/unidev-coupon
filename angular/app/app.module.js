@@ -5,6 +5,7 @@
 			'welcome',
 			'register',
 			'login',
+			'dashboard',
 			'templates',
 			'widgets'
 		]);
