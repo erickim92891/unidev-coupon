@@ -37,7 +37,13 @@
         this.$get = RouterHelper;
 		
 		// Inject dependencies
-        RouterHelper.$inject = ['$location', '$rootScope', '$state', '$logger'];
+        RouterHelper.$inject = [
+			'$location', 
+			'$rootScope', 
+			'$state', 
+			'$logger',
+			'$document'
+		];
 		
         /**
 		 * @name RouterHelper
@@ -46,7 +52,7 @@
 		 * @returns {Reject} 
 		 * @memberOf Blocks.Exception
 		 */
-        function RouterHelper ($location, $rootScope, $state, $logger) {
+        function RouterHelper ($location, $rootScope, $state, $logger, $document) {
             var handlingStateChangeError = false;
             var hasOtherwise = false;
             var stateCounts = {
@@ -79,7 +85,7 @@
 
             function handleRoutingErrors () {
                 // Route cancellation:
-                // On routing error, go to the dashboard.
+                // On routing error, go to the welcome page.
                 // Provide an exit clause if it tries to do it twice.
                 $rootScope.$on ('$stateChangeError',
                     function (event, toState, toParams, fromState, fromParams, error) {
@@ -88,6 +94,7 @@
                         }
                         stateCounts.errors++;
                         handlingStateChangeError = true;
+						/*
                         var destination = (toState &&
                             (toState.title || toState.name || toState.loadedTemplateUrl)) ||
                             'unknown target';
@@ -95,7 +102,13 @@
                             (error.data || '') + '. <br/>' + (error.statusText || '') +
                             ': ' + (error.status || '');
                         $logger.warning (msg, [toState]);
-                        $location.path ('/');
+						*/
+						if (error === 'AUTH_REQUIRED') {
+							$state.transitionTo ('login');
+						}
+                        else {
+							$state.transitionTo ('error');
+						}
                     }
                 );
             }
@@ -110,10 +123,9 @@
             function updateDocTitle () {
                 $rootScope.$on ('$stateChangeSuccess',
                     function (event, toState, toParams, fromState, fromParams) {
+						$document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
                         stateCounts.changes++;
                         handlingStateChangeError = false;
-                        var title = config.docTitle + ' ' + (toState.title || '');
-                        $rootScope.title = title; // data bind to <title>
                     }
                 );
             }
