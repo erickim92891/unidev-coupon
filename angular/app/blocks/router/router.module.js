@@ -1,6 +1,8 @@
 /**
- * Logger module
- * @namespace Blocks
+ * Router module
+ * @namespace Router
+ *
+ * @memberof Blocks
  */
 (function () {
 	'use strict';

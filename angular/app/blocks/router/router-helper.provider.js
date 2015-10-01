@@ -1,43 +1,49 @@
 /**
- * Router provider
- * @namespace Blocks
+ * Router provider that helps in global state management.
+ * @namespace Router
+ *
+ * @memberof Blocks
+ * @author johnpapa - https://github.com/johnpapa/generator-hottowel
  */
 (function() {
     'use strict';
 
     angular
         .module ('blocks.router')
-        .provider ('routerHelper', RouterHelperProvider);
+        .provider ('routerHelper', RouterHelper);
 	
-	// Inject dependencies
-    RouterHelperProvider.$inject = [
+	// Dependencies
+    RouterHelper.$inject = [
 		'$locationProvider', 
 		'$stateProvider', 
 		'$urlRouterProvider'
 	];
 	
 	/**
-	 * @namespace Router
-	 * @desc Application wide router to handle states in different files
-	 * @memberOf Blocks
+	 * @namespace RouterProvider
+	 *
+	 * @function RouterHelper
+	 * @desc Application wide router to handle states in different files + manage (un)-successful state changes.
+	 * @memberOf Blocks.Router
 	 */
-    function RouterHelperProvider ($locationProvider, $stateProvider, $urlRouterProvider) {
+    function RouterHelper ($locationProvider, $stateProvider, $urlRouterProvider) {
         /* jshint validthis:true */
         var config = {
             docTitle: undefined,
             resolveAlways: {}
         };
-
+		
+		// Remove the `#` symobl in angular URLs
         $locationProvider.html5Mode (true);
 		
         this.configure = function (cfg) {
             angular.extend (config, cfg);
         };
 
-        this.$get = RouterHelper;
+        this.$get = Helper;
 		
-		// Inject dependencies
-        RouterHelper.$inject = [
+		// Dependencies
+        Helper.$inject = [
 			'$location', 
 			'$rootScope', 
 			'$state', 
@@ -45,14 +51,7 @@
 			'$document'
 		];
 		
-        /**
-		 * @name RouterHelper
-		 * @desc Catches an exception and logs the error
-		 * @param {String} message Error message to log
-		 * @returns {Reject} 
-		 * @memberOf Blocks.Exception
-		 */
-        function RouterHelper ($location, $rootScope, $state, $logger, $document) {
+        function Helper ($location, $rootScope, $state, $logger, $document) {
             var handlingStateChangeError = false;
             var hasOtherwise = false;
             var stateCounts = {
@@ -94,15 +93,7 @@
                         }
                         stateCounts.errors++;
                         handlingStateChangeError = true;
-						/*
-                        var destination = (toState &&
-                            (toState.title || toState.name || toState.loadedTemplateUrl)) ||
-                            'unknown target';
-                        var msg = 'Error routing to ' + destination + '. ' +
-                            (error.data || '') + '. <br/>' + (error.statusText || '') +
-                            ': ' + (error.status || '');
-                        $logger.warning (msg, [toState]);
-						*/
+
 						if (error === 'AUTH_REQUIRED') {
 							$state.transitionTo ('login');
 						}

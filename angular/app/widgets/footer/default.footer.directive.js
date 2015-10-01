@@ -1,3 +1,9 @@
+/**
+ * Default footer directive
+ * @namespace Footer
+ *
+ * @memberof Application.Widget
+ */
 (function () {
 	'use strict';
 	
@@ -5,6 +11,13 @@
 		.module ('widgets.footer')
 		.directive ('widgetDefaultFooter', DefaultFooter);
 
+	/**
+	 * @namespace FooterDirective
+	 * 
+	 * @function DefaultFooter
+	 * @return {Object} - Directive parameters
+	 * @memberof Application.Widget.Footer
+	 */
 	function DefaultFooter () {
 		return {
 			restrict: 'E',

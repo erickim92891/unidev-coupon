@@ -1,23 +1,31 @@
 /**
- * Exception factory 
- * @namespace Blocks
+ * Exception factory that provides a consistent exception catcher.
+ * @namespace Exception
+ *
+ * @memberof Blocks
  */
 (function() {
     'use strict';
 	
     angular
         .module ('blocks.exception')
-        .factory ('$exception', Exception);
+        .factory ('$exception', ExceptionCatcher);
 	
-	// Inject dependencies
-	Exception.$inject = ['$q', '$logger'];
+	// Dependencies
+	ExceptionCatcher.$inject = ['$q', '$logger'];
 	
 	/**
-	 * @namespace Exception
-	 * @desc Application wide exception logger
-	 * @memberOf Blocks
+	 * @namespace ExceptionFactory
+	 * 
+	 * @function ExceptionCatcher
+	 * @desc Service that provides a global exception catcher.
+	 * @memberOf Blocks.Exception
 	 */ 
-    function Exception ($q, $logger) {
+    function ExceptionCatcher ($q, $logger) {
+		/**
+		 * @var {Object} service
+		 * @desc Service object that returns the exception catcher function.
+		 */
         var service = {
             catcher: Catcher
         };
@@ -25,23 +33,25 @@
 		return service;
 
 		/**
-		 * @name Catcher
+		 * @function Catcher
 		 * @desc Catches an exception and logs the error
-		 * @param {String} message Error message to log
+		 * @param {String} message - Error message to log
+		 * @memberof Blocks.Exception.ExceptionFactory
 		 * @returns {Reject} 
-		 * @memberOf Blocks.Exception
 		 */
         function Catcher(message) {
+			
+			/**
+			 * @param {String} reason - Error message from failed promise.
+			 * @returns {Reject}
+			 */
             return function (reason) {
-				var newMessage;
+				var data = {
+					message: message,
+					reason: reason
+				};
 				
-				if (message) {
-					newMessage = message + "<br />" + reason;
-				} else {
-					newMessage = reason;
-				}
-				
-                $logger.error (newMessage);
+                $logger.error (reason, data, message);
 				return $q.reject (reason);
             };
         }

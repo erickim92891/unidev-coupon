@@ -1,8 +1,6 @@
 /**
  * Main application routes
- *
- * @namespace ApplicationRoutes
- * @memberof Application
+ * @namespace Application
  */
 (function () {
 	'use strict';
@@ -17,9 +15,11 @@
 	];
 	
 	/**
+	 * @namespace ApplicationRoutes
+	 *
 	 * @function AppRoutes
 	 * @desc Redirect to the error state if the desired state/route is not defined.
-	 * @memberof ApplicationRoutes
+	 * @memberof Application
 	 */
 	function AppRoutes (routerHelper) {
 		// Second parameter of routerHelper is the `otherwise` case.

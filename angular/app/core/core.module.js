@@ -1,3 +1,9 @@
+/**
+ * Core module
+ * @namespace Core
+ *
+ * @memberof Application
+ */
 (function () {
 	'use strict';
 	

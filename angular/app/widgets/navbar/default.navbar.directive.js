@@ -1,3 +1,9 @@
+/**
+ * Default navbar directive
+ * @namespace Navbar
+ *
+ * @memberof Application.Widget
+ */
 (function () {
 	'use strict';
 	
@@ -5,6 +11,13 @@
 		.module ('widgets.navbar')
 		.directive ('widgetDefaultNavbar', DefaultNavbar);
 
+	/**
+	 * @namespace NavbarDirective
+	 *
+	 * @function DefaultNavbar
+	 * @return {Object} - Directive parameters
+	 * @memberof Application.Widget.Navbar
+	 */
 	function DefaultNavbar () {
 		return {
 			restrict: 'E',

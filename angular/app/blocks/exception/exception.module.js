@@ -1,6 +1,8 @@
 /**
  * Exception module
- * @namespace Blocks
+ * @namespace Exception
+ * 
+ * @memberof Blocks
  */
 (function () {
 	'use strict';

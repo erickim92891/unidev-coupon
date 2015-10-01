@@ -1,3 +1,9 @@
+/**
+ * Widget module
+ * @namespace Widget
+ *
+ * @memberof Application
+ */
 (function () {
 	'use strict';
 	

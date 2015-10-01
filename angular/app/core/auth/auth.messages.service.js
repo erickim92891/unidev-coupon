@@ -1,3 +1,9 @@
+/**
+ * Auth service that provides constant AUTH error/success messages.
+ * @namespace Auth
+ *
+ * @memberof Application.Core
+ */
 (function () {
 	'use strict';
 	
@@ -5,6 +11,13 @@
 		.module ('core.auth')
 		.factory ('$authMessages', AuthMessages);
 	
+	/**
+	 * @namespace AuthFactory
+	 * 
+	 * @function AuthMessages
+	 * @return {Object} - Object of constant messages.
+	 * @memberof Application.Core.Auth
+	 */
 	function AuthMessages () {
 		return {
 			AUTH_LOGIN_REQUIRED: 'You must first be logged in to perform this action!',

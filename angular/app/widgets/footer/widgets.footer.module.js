@@ -1,3 +1,9 @@
+/**
+ * Footer module
+ * @namespace Footer
+ *
+ * @memberof Application.Widget
+ */
 (function () {
 	'use strict';
 	

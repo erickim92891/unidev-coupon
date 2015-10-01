@@ -1,23 +1,27 @@
 /**
- * Logger configuration
- * @namespace Blocks
+ * Toastr configuration parameters
+ * @namespace Toastr
+ *
+ * @memberof Blocks.Logger
  */
 (function () {
 	'use strict';
 	
 	angular
 		.module ('blocks.logger')
-		.config (ToastrConfig);
+		.config (Config);
 	
-	// Inject dependencies
-	ToastrConfig.$inject = ['toastr'];
+	// Dependencies
+	Config.$inject = ['toastr'];
 	
 	/**
-	 * @namespace Logger
-	 * @desc Override toastr configuration
-	 * @memberOf Blocks
+	 * @namespace ToastrConfig
+	 *
+	 * @function Config
+	 * @desc Override toastr configuration parameters
+	 * @memberOf Blocks.Logger.Toastr
 	 */
-	function ToastrConfig (toastr) {
+	function Config (toastr) {
 		toastr.options.timeOut = 5000;
 		toastr.options.positionClass = 'toast-bottom-left';
 	}

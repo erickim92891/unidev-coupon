@@ -1,20 +1,23 @@
 /**
  * Exception handler
- * @namespace Blocks
+ * @namespace Exception
+ *
+ * @memberof Blocks
  */
 (function() {
     'use strict';
 
     angular
         .module ('blocks.exception')
-        .provider ('exceptionHandler', ExceptionHandlerProvider);
+        .provider ('exceptionHandler', ExceptionHandler);
 
     /**
-	 * @namespace Exception
-	 * @desc Exception handler provider
-	 * @memberOf Blocks
+	 * @namespace ExceptionProvider
+	 *
+	 * @function ExceptionHandler
+	 * @memberOf Blocks.Exception
 	 */
-    function ExceptionHandlerProvider () {
+    function ExceptionHandler () {
         /* jshint validthis:true */
         this.config = {
             appErrorPrefix: undefined

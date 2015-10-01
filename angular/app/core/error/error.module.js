@@ -1,3 +1,9 @@
+/**
+ * Error Module
+ * @namespace Error
+ *
+ * @memberof Application.Core
+ */
 (function () {
 	'use strict';
 	

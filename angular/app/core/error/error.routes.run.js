@@ -1,3 +1,9 @@
+/**
+ * Error Routes
+ * @namespace Error
+ *
+ * @memberof Application.Core
+ */
 (function () {
 	'use strict';
 	
@@ -5,14 +11,28 @@
 		.module ('core.error')
 		.run (ErrorRoutes);
 	
+	// Dependencies
 	ErrorRoutes.$inject = [
 		'routerHelper',
 		'$logger'
 	];
 	
+	/**
+	 * @namespace ErrorRun
+	 *
+	 * @function ErrorRoutes
+	 * @desc Setup the error state
+	 * @memberof Application.Core.Error
+	 */
 	function ErrorRoutes (routerHelper, $logger) {
 		routerHelper.configureStates (GetStates ());
 		
+		/**
+		 * @function GetStates
+		 * @desc - Setup the views and urls that associate with the error state
+		 * @return {Array} - An array of states w/ the necessary configuration parameters.
+		 * @memberof Application.Core.Error.ErrorRun
+		 */
 		function GetStates () {
 			return [ 
 				{

@@ -1,6 +1,8 @@
 /**
  * Create a angular constant for toastr
- * @namespace Blocks
+ * @namespace Toastr
+ *
+ * @memberof Blocks.Logger
  */
 (function () {
 	'use strict';
