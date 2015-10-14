@@ -1,8 +1,8 @@
 /**
  * Auth service that generates a Firebase Auth object
- * @namespace Auth
+ * @namespace Service
  *
- * @memberof Application.Core
+ * @memberof Application.Core.Auth
  */
 (function () {
 	'use strict';
@@ -18,12 +18,11 @@
 	];
 	
 	/** 
-	 * @namespace AuthFactory
-	 *
 	 * @function Auth
 	 * @desc Return a firebase auth object
-	 * @memberof Application.Core.Auth
 	 * @return {Object} - Firebase auth object
+	 *
+	 * @memberof Application.Core.Auth.Service
 	 */
 	function Auth ($firebaseUrl, $firebaseAuth) {
 		var ref = new Firebase ($firebaseUrl);

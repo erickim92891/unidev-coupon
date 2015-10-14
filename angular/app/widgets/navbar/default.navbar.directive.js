@@ -1,8 +1,8 @@
 /**
  * Default navbar directive
- * @namespace Navbar
+ * @namespace Directive
  *
- * @memberof Application.Widget
+ * @memberof Application.Widget.Navbar
  */
 (function () {
 	'use strict';
@@ -12,11 +12,10 @@
 		.directive ('widgetDefaultNavbar', DefaultNavbar);
 
 	/**
-	 * @namespace NavbarDirective
-	 *
 	 * @function DefaultNavbar
 	 * @return {Object} - Directive parameters
-	 * @memberof Application.Widget.Navbar
+	 *
+	 * @memberof Application.Widget.Navbar.Directive
 	 */
 	function DefaultNavbar () {
 		return {

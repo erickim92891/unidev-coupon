@@ -1,8 +1,8 @@
 /**
  * Error Routes
- * @namespace Error
+ * @namespace Route
  *
- * @memberof Application.Core
+ * @memberof Application.Core.Error
  */
 (function () {
 	'use strict';
@@ -18,11 +18,10 @@
 	];
 	
 	/**
-	 * @namespace ErrorRun
-	 *
 	 * @function ErrorRoutes
 	 * @desc Setup the error state
-	 * @memberof Application.Core.Error
+	 *
+	 * @memberof Application.Core.Error.Route
 	 */
 	function ErrorRoutes (routerHelper, $logger) {
 		routerHelper.configureStates (GetStates ());
@@ -31,7 +30,6 @@
 		 * @function GetStates
 		 * @desc - Setup the views and urls that associate with the error state
 		 * @return {Array} - An array of states w/ the necessary configuration parameters.
-		 * @memberof Application.Core.Error.ErrorRun
 		 */
 		function GetStates () {
 			return [ 

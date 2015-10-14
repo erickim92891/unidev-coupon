@@ -1,8 +1,8 @@
 /**
  * Default footer directive
- * @namespace Footer
+ * @namespace Directive
  *
- * @memberof Application.Widget
+ * @memberof Application.Widget.Footer
  */
 (function () {
 	'use strict';
@@ -12,11 +12,10 @@
 		.directive ('widgetDefaultFooter', DefaultFooter);
 
 	/**
-	 * @namespace FooterDirective
-	 * 
 	 * @function DefaultFooter
 	 * @return {Object} - Directive parameters
-	 * @memberof Application.Widget.Footer
+	 *
+	 * @memberof Application.Widget.Footer.Directive
 	 */
 	function DefaultFooter () {
 		return {

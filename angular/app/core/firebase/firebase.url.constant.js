@@ -1,8 +1,8 @@
 /**
  * Firebase constants
- * @namespace Firebase
+ * @namespace Constant
  *
- * @memberof Application.Core
+ * @memberof Application.Core.Firebase
  */
 (function () {
 	'use strict';

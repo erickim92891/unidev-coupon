@@ -1,8 +1,8 @@
 /**
  * Auth wrapper used to aid Firebase Auth functions
- * @namespace Auth
+ * @namespace Service
  *
- * @memberof Application.Core
+ * @memberof Application.Core.Auth
  */
 (function () {
 	'use strict';
@@ -15,18 +15,18 @@
 	Auth.$inject = [
 		'$q',
 		'$authMessages',
-		'$exception'
+		'$exception',
+		'_'
 	];
 	
 	/**
-	 * @namespace AuthFactory
-	 * 
 	 * @function Auth
 	 * @desc Return an object of useful Firebase Auth functions. Each function should pass in a Firebase Auth object as a parameter.
 	 * @return {Object} - Useful Firebase auth functions.
-	 * @memberof Application.Core.Auth
+	 * 
+	 * @memberof Application.Core.Auth.Service
 	 */
-	function Auth ($q, $authMessages, $exception) {
+	function Auth ($q, $authMessages, $exception, _) {
 		return {
 			requireAuth: RequireAuth
 		};
@@ -36,21 +36,12 @@
 		 * @desc - A helper function that is used to require an authenticated user
 		 * @param {Object} $auth - A firebase auth object
 		 * @return {Promise} - User if successful, or a rejected error message.
-		 * @memberof Application.Core.Auth.AuthFactory
 		 */
 		function RequireAuth ($auth) {
 			var defer = $q.defer ();
 			
-			$auth.$requireAuth ()
-				.then (function (user) {
-					defer.resolve (user);
-				})
-				.catch ($exception.catcher ($authMessages.AUTH_LOGIN_REQUIRED))
-				.catch (function (error) {
-					defer.reject (error);
-				});
-			
-			return defer.promise;
+			return $auth.$requireAuth ()
+				.catch ($exception.catcher ($authMessages.AUTH_LOGIN_REQUIRED));
 		}
 	}
 }) ();
