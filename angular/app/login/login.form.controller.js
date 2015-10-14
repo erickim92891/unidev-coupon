@@ -17,10 +17,14 @@
 		var vm = this;
 		var auth = $auth;
 		
-		vm.credentials = {};
+		vm.credentials = {
+			email: '',
+			password: ''
+		};
 		vm.login = Login;
 		
 		function Login () {
+			
 			auth.$authWithPassword (vm.credentials)
 				.then (function (user) {
 					$logger.success ($authMessages.AUTH_LOGIN_SUCCESS);

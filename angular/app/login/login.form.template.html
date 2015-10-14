@@ -1,28 +1,18 @@
-<div class="ui middle aligned center aligned grid" id='login-form'>
-	<div class="column">
-		<h2 class="ui teal header">
-			Log-in to your account!
-		</h2>
-		<form class="ui large form">
-			<div class="ui stacked segment">
-				<div class="field">
-					<div class="ui left icon input">
-						<i class="user icon"></i>
-						<input type="text" name="email" placeholder="E-mail address" ng-model='vm.credentials.email'>
-					</div>
-				</div>
-				<div class="field">
-					<div class="ui left icon input">
-						<i class="lock icon"></i>
-						<input type="password" name="password" placeholder="Password" ng-model='vm.credentials.password'>
-					</div>
-				</div>
-				<div class="ui fluid large teal submit button" ng-click='vm.login()'>Login</div>
+<form class="ui large form" ng-submit="vm.login()" method='post'>
+	<div class="ui stacked segment">
+		<div class="field">
+			<div class="ui left icon input">
+				<i class="user icon"></i>
+				<input type="email" name="email" placeholder="E-mail address" ng-model='vm.credentials.email'>
 			</div>
-			<div class="ui error message"></div>
-		</form>
-		<div class="ui message">
-			New to us? <a ui-sref="register">Sign Up</a>
 		</div>
+		<div class="field">
+			<div class="ui left icon input">
+				<i class="lock icon"></i>
+				<input type="password" name="password" placeholder="Password" ng-model='vm.credentials.password'>
+			</div>
+		</div>
+		<div class="ui fluid large teal submit button">Login</div>
 	</div>
-</div>
+	<div class="ui error message left"></div>
+</form>

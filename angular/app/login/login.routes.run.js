@@ -6,10 +6,10 @@
 		.run (LoginRoutes);
 	
 	LoginRoutes.$inject = [
-		'routerHelper',
+		'routerHelper'
 	];
 	
-	function LoginRoutes (routerHelper) {
+	function LoginRoutes (routerHelper, $auth, $state) {
 		routerHelper.configureStates (GetStates ());
 		
 		function GetStates () {
@@ -23,7 +23,7 @@
 								template: '<widget-default-navbar></widget-default-navbar>'
 							},
 							'body': {
-								templateUrl: 'app/login/login.form.template.html',
+								templateUrl: 'app/login/login.main.template.html',
 								controller: 'loginFormCtrl',
 								controllerAs: 'vm'
 							},
