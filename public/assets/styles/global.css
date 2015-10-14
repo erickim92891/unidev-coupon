@@ -8,3 +8,7 @@ html {
 body, #main-view-container {
 	min-height: 100%;
 }
+
+[ui-sref] {
+	cursor: pointer
+}
