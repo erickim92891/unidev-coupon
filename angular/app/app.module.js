@@ -7,12 +7,13 @@
 	
 	angular
 		.module ('app', [
-			'core',
+			'app.core',
 			'welcome',
 			'register',
 			'login',
+			'logout',
 			'dashboard',
 			'templates',
-			'widgets'
+			'app.widgets'
 		]);
 }) ();
