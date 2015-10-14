@@ -1,8 +1,8 @@
 /**
  * Decorator for Exception handler
- * @namespace Exception
+ * @namespace Decorator
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks.Exception
  */
 (function () {
 	'use strict';
@@ -15,11 +15,10 @@
 	Config.$inject = ['$provide'];
 	
 	/**
-	 * @namespace ExceptionConfig
-  	 *	
 	 * @function Config
 	 * @desc Decorator for the $exceptionHandler service.
-	 * @memberOf Blocks.Exception
+	 *
+	 * @memberOf Application.Core.Blocks.Exception.Decorator
 	 */
 	function Config ($provide) {
 		$provide.decorator ('$exceptionHandler', ExtendExceptionHandler);
@@ -30,7 +29,6 @@
 		/**
 		 * @function ExtendExceptionHandler
 		 * @desc Extend the $exceptionHandler service to also display a toastr message.
-		 * @memberof Blocks.Exception.ExceptionConfig
 		 * @return {Function} the decorated $exceptionHandler service
 		 */
 		function ExtendExceptionHandler ($delegate, exceptionHandler, $logger) {

@@ -1,8 +1,8 @@
 /**
  * Exception factory that provides a consistent exception catcher.
- * @namespace Exception
+ * @namespace Service
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks.Exception
  */
 (function() {
     'use strict';
@@ -15,11 +15,9 @@
 	ExceptionCatcher.$inject = ['$q', '$logger'];
 	
 	/**
-	 * @namespace ExceptionFactory
-	 * 
 	 * @function ExceptionCatcher
 	 * @desc Service that provides a global exception catcher.
-	 * @memberOf Blocks.Exception
+	 * @memberOf Application.Core.Blocks.Exception.Service
 	 */ 
     function ExceptionCatcher ($q, $logger) {
 		/**
@@ -36,7 +34,6 @@
 		 * @function Catcher
 		 * @desc Catches an exception and logs the error
 		 * @param {String} message - Error message to log
-		 * @memberof Blocks.Exception.ExceptionFactory
 		 * @returns {Reject} 
 		 */
         function Catcher(message) {
@@ -46,6 +43,7 @@
 			 * @returns {Reject}
 			 */
             return function (reason) {
+				console.log (reason);
 				var data = {
 					message: message,
 					reason: reason

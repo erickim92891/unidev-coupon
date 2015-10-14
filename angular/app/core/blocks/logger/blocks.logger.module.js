@@ -2,11 +2,13 @@
  * Logger module
  * @namespace Logger
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks
  */
 (function () {
 	'use strict';
 	
 	angular
-		.module ('blocks.logger', []);
+		.module ('blocks.logger', [
+			'core.thirdParty'
+		]);
 }) ();

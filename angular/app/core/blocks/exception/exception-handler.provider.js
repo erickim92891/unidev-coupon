@@ -1,8 +1,8 @@
 /**
  * Exception handler
- * @namespace Exception
+ * @namespace Handler
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks.Exception
  */
 (function() {
     'use strict';
@@ -12,10 +12,8 @@
         .provider ('exceptionHandler', ExceptionHandler);
 
     /**
-	 * @namespace ExceptionProvider
-	 *
 	 * @function ExceptionHandler
-	 * @memberOf Blocks.Exception
+	 * @memberOf Application.Core.Blocks.Exception.Handler
 	 */
     function ExceptionHandler () {
         /* jshint validthis:true */

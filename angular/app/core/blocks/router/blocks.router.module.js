@@ -2,7 +2,7 @@
  * Router module
  * @namespace Router
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks
  */
 (function () {
 	'use strict';

@@ -1,8 +1,8 @@
 /**
  * Router provider that helps in global state management.
- * @namespace Router
+ * @namespace Provider
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks.Router
  * @author johnpapa - https://github.com/johnpapa/generator-hottowel
  */
 (function() {
@@ -20,11 +20,9 @@
 	];
 	
 	/**
-	 * @namespace RouterProvider
-	 *
 	 * @function RouterHelper
 	 * @desc Application wide router to handle states in different files + manage (un)-successful state changes.
-	 * @memberOf Blocks.Router
+	 * @memberOf Application.Core.Blocks.Router.Provider
 	 */
     function RouterHelper ($locationProvider, $stateProvider, $urlRouterProvider) {
         /* jshint validthis:true */

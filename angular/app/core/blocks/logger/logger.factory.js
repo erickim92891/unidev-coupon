@@ -1,8 +1,8 @@
 /**
  * Logger factory that generates toastr messages
- * @namespace Logger
+ * @namespace Service
  *
- * @memberof Blocks
+ * @memberof Application.Core.Blocks.Logger
  */
 (function () {
 	'use strict';
@@ -18,11 +18,9 @@
 	];
 	
 	/**
-	 * @namespace LoggerFactory
-	 *
 	 * @function LoggerService
 	 * @desc Application wide logger service using toastr messages.
-	 * @memberof Blocks.Logger
+	 * @memberof Application.Core.Blocks.Logger.Service
 	 */
     function LoggerService ($log, toastr) {
         var service = {
@@ -45,7 +43,6 @@
 		 * @param {String} message - Error description
 		 * @param {Object} data - Error object
 		 * @param {String} title - Error title
-		 * @memberof Blocks.Logger.LoggerFactory
 		 */
         function error (message, data, title) {
             toastr.error(message, title);
@@ -58,7 +55,6 @@
 		 * @param {String} message - info description
 		 * @param {Object} data - info object
 		 * @param {String} title - info title
-		 * @memberof Blocks.Logger.LoggerFactorye
 		 */
         function info (message, data, title) {
             toastr.info(message, title);
@@ -71,7 +67,6 @@
 		 * @param {String} message - success description
 		 * @param {Object} data - success object
 		 * @param {String} title - success title
-		 * @memberof Blocks.Logger.LoggerFactory
 		 */
         function success (message, data, title) {
             toastr.success(message, title);
@@ -84,7 +79,6 @@
 		 * @param {String} message - warning description
 		 * @param {Object} data - warning object
 		 * @param {String} title - warning title
-		 * @memberof Blocks.Logger.LoggerFactory
 		 */
         function warning (message, data, title) {
             toastr.warning(message, title);

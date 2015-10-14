@@ -1,8 +1,8 @@
 /**
  * Toastr configuration parameters
- * @namespace Toastr
+ * @namespace Config
  *
- * @memberof Blocks.Logger
+ * @memberof Application.Core.Blocks.Logger
  */
 (function () {
 	'use strict';
@@ -15,11 +15,10 @@
 	Config.$inject = ['toastr'];
 	
 	/**
-	 * @namespace ToastrConfig
-	 *
 	 * @function Config
 	 * @desc Override toastr configuration parameters
-	 * @memberOf Blocks.Logger.Toastr
+	 *
+	 * @memberOf Application.Core.Blocks.Logger.Config
 	 */
 	function Config (toastr) {
 		toastr.options.timeOut = 5000;

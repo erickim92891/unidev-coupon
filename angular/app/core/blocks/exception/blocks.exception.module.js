@@ -2,7 +2,7 @@
  * Exception module
  * @namespace Exception
  * 
- * @memberof Blocks
+ * @memberof Application.Core.Blocks
  */
 (function () {
 	'use strict';
