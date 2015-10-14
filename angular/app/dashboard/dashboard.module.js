@@ -3,6 +3,7 @@
 	
 	angular
 		.module ('dashboard', [
-			'core'
+			'app.core',
+			'chart.js'
 		]);
 }) ();
