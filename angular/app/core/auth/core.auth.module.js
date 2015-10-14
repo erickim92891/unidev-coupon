@@ -9,6 +9,7 @@
 	
 	angular
 		.module ('core.auth', [
+			'core.firebase',
 			'firebase'
 		]);
 }) ();

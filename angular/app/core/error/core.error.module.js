@@ -8,5 +8,7 @@
 	'use strict';
 	
 	angular
-		.module ('core.error', []);
+		.module ('core.error', [
+			'core.blocks'
+		]);
 }) ();

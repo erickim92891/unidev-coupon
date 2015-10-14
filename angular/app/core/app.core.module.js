@@ -8,12 +8,11 @@
 	'use strict';
 	
 	angular
-		.module ('core', [
+		.module ('app.core', [
 			'core.firebase',
 			'core.auth',
 			'core.error',
-			'blocks.exception',
-			'blocks.logger',
-			'blocks.router'
+			'core.thirdParty',
+			'core.blocks'
 		]);
 }) ();
