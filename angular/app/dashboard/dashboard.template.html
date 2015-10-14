@@ -1,7 +1,25 @@
-<h1 class='ui header'>
-	DASHBOARD
-</h1>
-
-<button class='ui button' ng-click='vm.logout()'>
-	Logout
-</button>
+<div class='ui container' id='dashboard'>	
+	<widget-time-filter align='right' icon='calendar' color='grey'></widget-time-filter>
+	<dashboard-alert-cards></dashboard-alert-cards>
+	<div class='ui grid'>
+		<div class='sixteen wide column'>
+			<div class='ui horizontal divider'>TOP THREE COUPONS</div>
+			<div class='ui raised teal segment'>
+				<canvas class="bar chart-line" chart-data="vm.data"
+					chart-legend="true" chart-series="vm.series" chart-labels="vm.labels">
+				</canvas>
+			</div>
+		</div>
+	</div>
+	
+	<div class='ui three column stackable grid'>
+		<div class=' wide column'>
+			<div class='ui horizontal divider'>Graphs</div>
+			<div class='ui raised blue segment'>
+				<canvas id="doughnut" class="chart chart-doughnut"
+					chart-data="vm.data1" chart-labels="vm.labels" chart-legend="true">
+				</canvas> 
+			</div>
+		</div>
+	</div>
+</div>
