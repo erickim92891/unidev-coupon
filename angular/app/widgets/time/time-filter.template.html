@@ -1,0 +1,41 @@
+<div class='ui three column grid'>
+	<div class='one wide large screen
+				one wide widescreen
+				one wide computer
+				two wide tablet
+				two wide mobile
+				column'>
+	</div>
+		
+	<div class="fourteen wide large screen
+				fourteen wide widescreen
+				fourteen wide computer
+				twelve wide tablet
+				twelve wide mobile
+				column">
+		<h4 class="ui aligned header" ng-class='align'>
+			<i class="icon" ng-class='[icon, iconColor]' style='display: inline-block !important;'></i>
+			Filter by
+			<div class="ui inline dropdown" widget-dropdown>
+				<div class="text" style='color: {{ color }}; text-transform: lowercase;'>{{ time.getCurrentTime () }}</div>
+				<i class="dropdown icon"></i>
+				<div class="menu">
+					<div class="header">Adjust time span</div>
+					<div class="active item" ng-click='time.setCurrentTime (timeConstant.TODAY)'>Today</div>
+					<div class="item" ng-click='time.setCurrentTime (timeConstant.WEEK)'>This Week</div>
+					<div class="item" ng-click='time.setCurrentTime (timeConstant.MONTH)'>This Month</div>
+					<div class="item" ng-click='time.setCurrentTime (timeConstant.YEAR)'>This Year</div>
+					<div class="item" ng-click='time.setCurrentTime (timeConstant.ALL_TIME)'>All Time</div>
+				</div>
+			</div>
+		</h4>		
+	</div>
+	<div class='one wide large screen
+				one wide widescreen
+				one wide computer
+				two wide tablet
+				two wide mobile
+				column'>
+	</div>
+</div>
+	
