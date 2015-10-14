@@ -8,10 +8,11 @@
 	DashboardRoutes.$inject = [
 		'routerHelper',
 		'$auth',
-		'$authWrapper'
+		'$authMessages',
+		'$exception'
 	];
 	
-	function DashboardRoutes (routerHelper, $auth, $authWrapper) {
+	function DashboardRoutes (routerHelper, $auth, $authMessages, $exception) {
 		routerHelper.configureStates (GetStates ());
 		
 		function GetStates () {
@@ -21,6 +22,9 @@
 					config: {
 						url: '/dashboard',
 						views: {
+							'navbar': {
+								template: '<widget-user-navbar></widget-user-navbar>'
+							},
 							'body': {
 								templateUrl: 'app/dashboard/dashboard.template.html',
 								controller: 'dashboardCtrl',
@@ -36,7 +40,8 @@
 		}
 		
 		function RequireAuth () {
-			return $authWrapper.requireAuth ($auth);
+			return $auth.$requireAuth ()
+				.catch ($exception.catcher ($authMessages.AUTH_LOGIN_REQUIRED));
 		}
 	}
 }) ();
