@@ -13,6 +13,7 @@
 			'widgets.footer',
 			'widgets.animations',
 			'widgets.dropdown',
-			'widgets.time'
+			'widgets.time',
+			'widgets.form'
 		]);
 }) ();

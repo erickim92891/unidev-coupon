@@ -2,13 +2,13 @@
 	'use strict';
 	
 	angular
-		.module ('login')
-		.directive ('loginForm', LoginForm);
+		.module ('widgets.form')
+		.directive ('widgetEmailPasswordForm', EmailPasswordForm);
 	
-	function LoginForm () {
+	function EmailPasswordForm () {
 		return {
 			restrict: 'E',
-			templateUrl: 'app/login/login.form.template.html',
+			templateUrl: 'app/widgets/form/email-password.form.template.html',
 			link: Link
 		};
 		

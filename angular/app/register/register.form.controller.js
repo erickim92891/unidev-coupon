@@ -17,8 +17,11 @@
 		var vm = this;
 		var auth = $auth;
 		
-		vm.credentials = {};
-		vm.register = Register;
+		vm.credentials = {
+			email: '',
+			password: ''
+		};
+		vm.submit = Register;
 		
 		function Register () {
 			
@@ -33,6 +36,7 @@
 				})
 				.then (function (user) {
 					$state.transitionTo ('dashboard');
+					$logger.success ($authMessages.AUTH_LOGIN_SUCCESS);
 				})
 				.catch ($exception.catcher (errorMsg));
 		}

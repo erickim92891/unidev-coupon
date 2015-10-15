@@ -3,6 +3,7 @@
 	
 	angular
 		.module ('login', [
-			'app.core'
+			'app.core',
+			'app.widgets'
 		]);
 }) ();

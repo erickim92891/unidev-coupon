@@ -2,6 +2,7 @@
 	'use strict';
 	
 	angular.module ('register', [
-		'app.core'
+		'app.core',
+		'app.widgets'
 	]);
 }) ();

@@ -21,16 +21,17 @@
 			email: '',
 			password: ''
 		};
-		vm.login = Login;
+		vm.submit = Login;
 		
 		function Login () {
-			
-			auth.$authWithPassword (vm.credentials)
-				.then (function (user) {
-					$logger.success ($authMessages.AUTH_LOGIN_SUCCESS);
-					$state.transitionTo ('dashboard');
-				})
-				.catch ($exception.catcher ($authMessages.AUTH_LOGIN_FAILED));
+			if (vm.credentials.email && vm.credentials.password) {
+				auth.$authWithPassword (vm.credentials)
+					.then (function (user) {
+						$logger.success ($authMessages.AUTH_LOGIN_SUCCESS);
+						$state.transitionTo ('dashboard');
+					})
+					.catch ($exception.catcher ($authMessages.AUTH_LOGIN_FAILED));
+			}
 		}
 	}
 }) ();

@@ -23,7 +23,7 @@
 								template: '<widget-default-navbar></widget-default-navbar>'	
 							},
 							'body': {
-								templateUrl: 'app/register/register.form.template.html',
+								templateUrl: 'app/register/register.main.template.html',
 								controller: 'registerFormCtrl',
 								controllerAs: 'vm'
 							},
