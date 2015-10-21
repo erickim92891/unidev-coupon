@@ -9,7 +9,7 @@
 		'routerHelper'
 	];
 	
-	function LoginRoutes (routerHelper, $auth, $state) {
+	function LoginRoutes (routerHelper) {
 		routerHelper.configureStates (GetStates ());
 		
 		function GetStates () {

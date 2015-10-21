@@ -11,10 +11,12 @@
 		global _:false 
 		global moment:false
 		global toastr: false
+		global Firebase: false
 	*/
 	angular
 		.module ('core.thirdParty')
 		.constant ('_', _)
 		.constant ('moment', moment)
-		.constant ('toastr', toastr);
+		.constant ('toastr', toastr)
+		.constant ('Firebase', Firebase);
 }) ();

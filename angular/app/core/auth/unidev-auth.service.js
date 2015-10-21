@@ -9,11 +9,11 @@
 	
 	angular
 		.module ('core.auth')
-		.factory ('$auth', Auth);
+		.factory ('$unidevAuth', Auth);
 	
 	// Dependencies
 	Auth.$inject = [
-		'$firebaseUrl',
+		'$unidevFirebase',
 		'$firebaseAuth'
 	];
 	
@@ -24,8 +24,7 @@
 	 *
 	 * @memberof Application.Core.Auth.Service
 	 */
-	function Auth ($firebaseUrl, $firebaseAuth) {
-		var ref = new Firebase ($firebaseUrl);
-		return $firebaseAuth (ref);
+	function Auth ($unidevFirebase, $firebaseAuth) {
+		return $firebaseAuth ($unidevFirebase);
 	}
 }) ();

@@ -6,16 +6,16 @@
 		.controller ('registerFormCtrl', RegisterForm);
 	
 	RegisterForm.$inject = [
-		'$auth',
+		'$unidevAuth',
 		'$state',
 		'$logger',
 		'$authMessages',
 		'$exception'
 	];
 	
-	function RegisterForm ($auth, $state, $logger, $authMessages, $exception) {
+	function RegisterForm ($unidevAuth, $state, $logger, $authMessages, $exception) {
 		var vm = this;
-		var auth = $auth;
+		var auth = $unidevAuth;
 		
 		vm.credentials = {
 			email: '',

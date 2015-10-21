@@ -9,14 +9,11 @@
   "author": "Eric Kim",
   "license": "ISC",
   "devDependencies": {
-    "browserify": "^11.1.0",
     "chalk": "^1.1.1",
     "del": "^2.0.2",
-    "event-stream": "^3.3.1",
     "express": "^4.13.3",
     "gulp": "^3.9.0",
     "gulp-angular-templatecache": "^1.7.0",
-    "gulp-browserify2": "0.0.2",
     "gulp-concat": "^2.6.0",
     "gulp-inject": "^2.2.0",
     "gulp-jshint": "^1.11.2",
@@ -31,12 +28,10 @@
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
     "main-bower-files": "^2.9.0",
-    "require-dir": "^0.3.0",
-    "stream-series": "^0.1.1"
+    "require-dir": "^0.3.0"
   },
   "dependencies": {
     "lodash": "^3.10.1",
-    "moment": "^2.10.6",
     "q": "^1.4.1"
   }
 }

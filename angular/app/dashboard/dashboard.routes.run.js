@@ -7,12 +7,12 @@
 	
 	DashboardRoutes.$inject = [
 		'routerHelper',
-		'$auth',
+		'$unidevAuth',
 		'$authMessages',
 		'$exception'
 	];
 	
-	function DashboardRoutes (routerHelper, $auth, $authMessages, $exception) {
+	function DashboardRoutes (routerHelper, $unidevAuth, $authMessages, $exception) {
 		routerHelper.configureStates (GetStates ());
 		
 		function GetStates () {
@@ -40,7 +40,7 @@
 		}
 		
 		function RequireAuth () {
-			return $auth.$requireAuth ()
+			return $unidevAuth.$requireAuth ()
 				.catch ($exception.catcher ($authMessages.AUTH_LOGIN_REQUIRED));
 		}
 	}

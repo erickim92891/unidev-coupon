@@ -6,14 +6,14 @@
 		.controller ('logoutCtrl', LogoutCtrl);
 	
 	LogoutCtrl.$inject = [
-		'$auth',
+		'$unidevAuth',
 		'$authMessages',
 		'$logger',
 		'$state'
 	];
 	
-	function LogoutCtrl ($auth, $authMessages, $logger, $state) {
-		$auth.$unauth ();
+	function LogoutCtrl ($unidevAuth, $authMessages, $logger, $state) {
+		$unidevAuth.$unauth ();
 		$logger.success ($authMessages.AUTH_LOGOUT_SUCCESS);
 		$state.go ('welcome');
 	}

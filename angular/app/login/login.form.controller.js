@@ -6,16 +6,16 @@
 		.controller ('loginFormCtrl', LoginForm);
 	
 	LoginForm.$inject = [
-		'$auth',
+		'$unidevAuth',
 		'$state',
 		'$logger',
 		'$authMessages',
 		'$exception'
 	];
 	
-	function LoginForm ($auth, $state, $logger, $authMessages, $exception) {
+	function LoginForm ($unidevAuth, $state, $logger, $authMessages, $exception) {
 		var vm = this;
-		var auth = $auth;
+		var auth = $unidevAuth;
 		
 		vm.credentials = {
 			email: '',
