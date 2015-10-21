@@ -9,5 +9,5 @@
 	
 	angular
 		.module ('core.firebase')
-		.constant ('$firebaseUrl', 'https://uni-dev.firebaseio.com/');
+		.constant ('$firebaseUrl', 'https://unidev-coupon.firebaseio.com/');
 }) ();
