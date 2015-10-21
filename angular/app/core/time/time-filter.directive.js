@@ -8,8 +8,8 @@
 	'use strict';
 	
 	angular
-		.module ('widgets.time')
-		.directive ('widgetTimeFilter', TimeFilter);
+		.module ('time')
+		.directive ('timeFilter', TimeFilter);
 	
 	// Dependencies
 	TimeFilter.$inject = [
@@ -33,7 +33,7 @@
 		
 		return {
 			restrict: 'E',
-			templateUrl: 'app/widgets/time/time-filter.template.html',
+			templateUrl: 'app/time/time-filter.template.html',
 			scope: {
 				align: '@?',
 				icon: '@?',

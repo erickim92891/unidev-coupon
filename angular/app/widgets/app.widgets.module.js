@@ -13,7 +13,6 @@
 			'widgets.footer',
 			'widgets.animations',
 			'widgets.dropdown',
-			'widgets.time',
 			'widgets.form'
 		]);
 }) ();
