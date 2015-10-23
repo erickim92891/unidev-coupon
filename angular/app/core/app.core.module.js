@@ -13,6 +13,7 @@
 			'core.auth',
 			'core.error',
 			'core.thirdParty',
-			'core.blocks'
+			'core.blocks',
+			'core.time'
 		]);
 }) ();
