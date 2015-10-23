@@ -8,7 +8,7 @@
 	'use strict';
 	
 	angular
-		.module ('time')
+		.module ('core.time')
 		.directive ('timeFilter', TimeFilter);
 	
 	// Dependencies
