@@ -14,7 +14,8 @@
 	TimeFactory.$inject = [
 		'$timeConstant', 
 		'_',
-		'moment'
+		'moment',
+		'$rootScope'
 	];
 	
 	/** 
@@ -24,18 +25,29 @@
 	 *
 	 * @memberof Application.Core.Time.Service
 	 */
-	function TimeFactory ($timeConstant, _, moment) {
+	function TimeFactory ($timeConstant, _, moment, $rootScope) {
 		
 		var currTime = $timeConstant.TODAY;
 		
 		return {
 			getCurrentTime: GetCurrentTime,
 			setCurrentTime: SetCurrentTime,
+			
+			generateCurrentTimeRange: GenerateCurrentTimeRange,
 			generateDayRange: GenerateDayRange,
 			generateWeekRange: GenerateWeekRange,
 			generateMonthRange: GenerateMonthRange,
 			generateYearRange: GenerateYearRange,
-			generateAllRange: GenerateAllRange
+			generateAllRange: GenerateAllRange,
+			
+			extractHour: ExtractHour,
+			extractDay: ExtractDay,
+			extractWeek: ExtractWeek,
+			extractMonth: ExtractMonth,
+			extractYear: ExtractYear,
+			
+			startOf: StartOf,
+			endOf: EndOf
 		};	
 		
 		/** 
@@ -55,11 +67,30 @@
 		function SetCurrentTime (time) {
 			if (_.isString (time)) {
 				currTime = time;
+				$rootScope.$emit ('time.changed');
 			} else {
 				console.log (time + ' is not a valid string for SetCurrentTime (time)');
 			}
 		}
 		
+		function GenerateCurrentTimeRange () {
+
+			if (currTime == $timeConstant.WEEK) {
+				return GenerateWeekRange (true);
+			}
+			
+			if (currTime == $timeConstant.MONTH) {
+				return GenerateMonthRange ();
+			}
+			
+			if (currTime == $timeConstant.YEAR) {
+				return GenerateYearRange (true);
+			}
+			
+			SetCurrentTime ($timeConstant.TODAY);
+			return GenerateDayRange ().regular;
+		}
+
 		/**
 		 * @function GenerateDayRange ()
 		 * @desc Gets an array of hour ranges for a day
@@ -129,7 +160,10 @@
 		function GenerateMonthRange () {
 			var weeks = [];
 			var numOfWeeks = Math.round (moment ().daysInMonth () / 7);
-			_(numOfWeeks).times (function(n){ weeks.push (n + 1 + ' week'); });
+			_(numOfWeeks).times (function (n) { 
+				var week = n + 1;
+				weeks.push ('Week ' + week); 
+			});
 			
 			return weeks;
 		}
@@ -156,6 +190,98 @@
 		 */
 		function GenerateAllRange () {
 			return [1];
+		}
+		
+		/**
+		 * @function ExtractHour ()
+		 * @desc Extracts the hour from a unix timestamp
+		 * @return {Number} - Returns the hour of the unix timestamp
+		 *					(E.g., [0-23])
+		 */
+		function ExtractHour (unixTimestamp) {
+			if (_.isNumber (unixTimestamp)) {
+				return moment (unixTimestamp).format ('H');
+			}
+			
+			return null;
+		}
+		
+		/**
+		 * @function ExtractDay ()
+		 * @desc Extracts the day from a unix timestamp
+		 * @return {Number} - Returns the day of the unix timestamp
+		 *					(E.g., [0-6])
+		 */
+		function ExtractDay (unixTimestamp) {
+			if (_.isNumber (unixTimestamp)) {
+				return moment (unixTimestamp).format ('d');
+			}
+			
+			return null;
+		}
+		
+		/**
+		 * @function ExtractWeek ()
+		 * @desc Extracts the week from a unix timestamp
+		 * @return {Number} - Returns the week of the unix timestamp
+		 *					(E.g., [0-4])
+		 */
+		function ExtractWeek (unixTimestamp) {
+			if (_.isNumber (unixTimestamp)) {
+				return Math.floor ((moment (unixTimestamp).format ('D') - 1) / 7);
+			}
+			
+			return null;
+		}
+		
+		/**
+		 * @function ExtractMonth ()
+		 * @desc Extracts the month from a unix timestamp
+		 * @return {Number} - Returns the month of the unix timestamp
+		 *					(E.g., [0-11])
+		 */
+		function ExtractMonth (unixTimestamp) {
+			if (_.isNumber (unixTimestamp)) {
+				return moment (unixTimestamp).format ('M') - 1;
+			}
+			
+			return null;
+		}
+		
+		/**
+		 * @function ExtractYear ()
+		 * @desc Extracts the year from a unix timestamp
+		 * @return {Number} - Returns the year of the unix timestamp
+		 *					(E.g., [1898, 2015, etc...])
+		 */
+		function ExtractYear (unixTimestamp) {
+			if (_.isNumber (unixTimestamp)) {
+				return moment (unixTimestamp).format ('YYYY');
+			}
+			
+			return null;
+		}
+		
+		/**
+		 * @function StartOf ()
+		 * @desc Gets the start date depending on the time passed in
+		 * @param {String} time - http://momentjs.com/docs/#/manipulating/start-of/
+		 * @return {String} - Unix timestamp
+		 */
+		function StartOf (time) {
+			time = (time === 'today') ? 'day' : time;
+			return Number (moment ().startOf (time).format ('x'));
+		}
+		
+		/**
+		 * @function EndOf ()
+		 * @desc Gets the end date depending on the time passed in
+		 * @param {String} time - http://momentjs.com/docs/#/manipulating/end-of/
+		 * @return {String} - Unix timestamp
+		 */
+		function EndOf (time) {
+			time = (time === 'today') ? 'day' : time;
+			return Number (moment ().endOf (time).format ('x'));
 		}
 	}
 }) ();
