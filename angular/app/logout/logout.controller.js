@@ -15,6 +15,6 @@
 	function LogoutCtrl ($unidevAuth, $authMessages, $logger, $state) {
 		$unidevAuth.$unauth ();
 		$logger.success ($authMessages.AUTH_LOGOUT_SUCCESS);
-		$state.go ('welcome');
+		$state.go ('login');
 	}
 }) ();
