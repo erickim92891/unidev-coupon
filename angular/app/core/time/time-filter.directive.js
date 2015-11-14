@@ -33,7 +33,7 @@
 		
 		return {
 			restrict: 'E',
-			templateUrl: 'app/time/time-filter.template.html',
+			templateUrl: 'app/core/time/time-filter.template.html',
 			scope: {
 				align: '@?',
 				icon: '@?',
