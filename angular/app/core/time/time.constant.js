@@ -8,11 +8,11 @@
 	'use strict';
 	
 	var constants = {
-		ALL_TIME: 'All Time',
-		TODAY: 'Today',
-		WEEK: 'This Week',
-		MONTH: 'This Month',
-		YEAR: 'This Year'
+		ALL_TIME: 'all',
+		TODAY: 'today',
+		WEEK: 'week',
+		MONTH: 'month',
+		YEAR: 'year'
 	};
 	
 	angular
