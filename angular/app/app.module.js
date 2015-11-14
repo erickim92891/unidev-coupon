@@ -8,12 +8,14 @@
 	angular
 		.module ('app', [
 			'app.core',
-			'welcome',
 			'register',
 			'login',
 			'logout',
 			'dashboard',
+			'coupons',
 			'templates',
-			'app.widgets'
+			'app.graphs',
+			'app.widgets',
+			'app.maps'
 		]);
 }) ();
