@@ -17,18 +17,12 @@
 				{
 					state: 'login',
 					config: {
-						url: '/login',
+						url: '/',
 						views: {
-							'navbar': {
-								template: '<widget-default-navbar></widget-default-navbar>'
-							},
 							'body': {
 								templateUrl: 'app/login/login.main.template.html',
 								controller: 'loginFormCtrl',
 								controllerAs: 'vm'
-							},
-							'footer': {
-								template: '<widget-default-footer></widget-default-footer>'
 							}
 						}
 					}
