@@ -4,5 +4,6 @@ module.exports = {
 	env: {
 		development: 'development',
 		production: 'production'
-	}
+	},
+	firebase: 'https://unidev-coupon.firebaseio.com/'
 };
