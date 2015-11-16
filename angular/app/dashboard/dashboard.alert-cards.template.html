@@ -2,8 +2,8 @@
 	<div class='column'>
 		<div class='ui raised teal segment'>
 			<div class='ui stackable two column grid'>
-				<div class='sixteen wide tablet 
-							six wide large screen 
+				<div class='sixteen wide tablet
+							six wide large screen
 							six wide widescreen
 							column'>
 					<h2 class='ui center aligned icon header'>
@@ -11,17 +11,17 @@
 						<div class="sub header">Redeemed</div>
 					</h2>
 				</div>
-				<div class='center aligned middle aligned 
-							sixteen wide tablet 
-							ten wide large screen 
+				<div class='center aligned middle aligned
+							sixteen wide tablet
+							ten wide large screen
 							ten wide widescreen
 							column'>
 					<div class='ui statistic'>
 						<div class='label'>
-							{{ vm.time }}
+							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='value'>
-							{{ vm.couponsRedeemed }}
+							{{ vm.numRedeemed || 0 | abbreviate:1 }}
 						</div>
 					</div>
 				</div>
@@ -34,8 +34,8 @@
 	<div class='column'>
 		<div class='ui raised yellow segment'>
 			<div class='ui stackable two column grid'>
-				<div class='sixteen wide tablet 
-							six wide large screen 
+				<div class='sixteen wide tablet
+							six wide large screen
 							six wide widescreen
 							column'>
 					<h2 class='ui center aligned icon header'>
@@ -43,17 +43,17 @@
 						<div class="sub header">Top Coupon</div>
 					</h2>
 				</div>
-				<div class='center aligned middle aligned 
-							sixteen wide tablet 
-							ten wide large screen 
+				<div class='center aligned middle aligned
+							sixteen wide tablet
+							ten wide large screen
 							ten wide widescreen
 							column'>
 					<div class='ui statistic'>
 						<div class='label'>
-							{{ vm.time }}
+							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='text value'>
-							{{ vm.topCoupon }}
+							{{ vm.topCoupon || 'N/A'}}
 						</div>
 					</div>
 				</div>
@@ -66,8 +66,8 @@
 	<div class='column'>
 		<div class='ui raised blue segment'>
 			<div class='ui stackable two column grid'>
-				<div class='sixteen wide tablet 
-							six wide large screen 
+				<div class='sixteen wide tablet
+							six wide large screen
 							six wide widescreen
 							column'>
 					<h2 class='ui center aligned icon header'>
@@ -75,14 +75,14 @@
 						<div class="sub header">Hot Areas</div>
 					</h2>
 				</div>
-				<div class='center aligned middle aligned 
-							sixteen wide tablet 
-							ten wide large screen 
+				<div class='center aligned middle aligned
+							sixteen wide tablet
+							ten wide large screen
 							ten wide widescreen
 							column'>
 					<div class='ui statistic'>
 						<div class='label'>
-							{{ vm.time }}
+							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='text value'>
 							{{ vm.hotAreas }}
