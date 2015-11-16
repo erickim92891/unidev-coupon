@@ -3,23 +3,40 @@
 	<dashboard-alert-cards></dashboard-alert-cards>
 	<div class='ui grid'>
 		<div class='sixteen wide column'>
-			<div class='ui horizontal divider'>TOP THREE COUPONS</div>
+			<div class='ui horizontal divider'>{{ vm.couponsRedeemedGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
 			<div class='ui raised teal segment'>
-				<canvas class="bar chart-line" chart-data="vm.data"
-					chart-legend="true" chart-series="vm.series" chart-labels="vm.labels">
-				</canvas>
+				<canvas id="line" class="chart chart-line" chart-data="vm.couponsRedeemedGraph.getData ()"
+				  chart-labels="vm.couponsRedeemedGraph.getLabels ()">
+				</canvas> 
 			</div>
 		</div>
 	</div>
 	
-	<div class='ui three column stackable grid'>
+
+	<div class='ui two column stackable grid'>
 		<div class=' wide column'>
-			<div class='ui horizontal divider'>Graphs</div>
-			<div class='ui raised blue segment'>
-				<canvas id="doughnut" class="chart chart-doughnut"
-					chart-data="vm.data1" chart-labels="vm.labels" chart-legend="true">
+			<div class='ui horizontal divider'>{{ vm.topCouponGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
+			<div class='ui raised yellow segment'>
+				<canvas id="bar" class="chart chart-polar-area" chart-legend="true"
+					chart-data="vm.topCouponGraph.getData ()" chart-labels="vm.topCouponGraph.getLabels ()">
 				</canvas> 
 			</div>
 		</div>
+		<div class=' wide column'>
+			<div class='ui horizontal divider'>{{ vm.hotAreasGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
+			<div class='ui raised blue segment'>
+				<canvas id="doughnut" class="chart chart-doughnut"
+					chart-data="vm.hotAreasGraph.getData ()" chart-labels="vm.hotAreasGraph.getLabels ()" chart-legend="true">
+				</canvas> 
+			</div>
+		</div>
+	</div>
+
+	<div id="coupons">
+		<h1>{{ vm.coupons.length }}</h1>
+		<p ng-repeat="coupon in vm.coupons">
+			{{ coupon.coupon }} | {{ coupon.timeRedeemed }} | {{ coupon.address }}
+		</p>
+		
 	</div>
 </div>
