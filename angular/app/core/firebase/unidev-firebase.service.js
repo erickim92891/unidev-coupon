@@ -10,7 +10,8 @@
     angular
         .module ('core.firebase')
         .factory ('$unidevFirebase', Unidev);
-        
+    
+    // Dependencies
     Unidev.$inject = [
         '$firebaseUrl',
         'Firebase'
