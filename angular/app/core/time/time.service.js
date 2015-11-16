@@ -73,6 +73,11 @@
 			}
 		}
 		
+		/**
+		 * @function GenerateCurrentTimeRange ()
+		 * @desc Gets an array of time ranges based on current time
+		 * @return {Object} - An array of time ranges
+		 */
 		function GenerateCurrentTimeRange () {
 
 			if (currTime == $timeConstant.WEEK) {
@@ -160,7 +165,8 @@
 		function GenerateMonthRange () {
 			var weeks = [];
 			var numOfWeeks = Math.round (moment ().daysInMonth () / 7);
-			_(numOfWeeks).times (function (n) { 
+
+			_.times (numOfWeeks, function (n) { 
 				var week = n + 1;
 				weeks.push ('Week ' + week); 
 			});
