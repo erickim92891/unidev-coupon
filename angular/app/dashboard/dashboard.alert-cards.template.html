@@ -21,7 +21,7 @@
 							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='value'>
-							{{ vm.numRedeemed || 0 | abbreviate:1 }}
+							{{ vm.alertCards.numRedeemed || 0 | abbreviate:1 }}
 						</div>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='text value'>
-							{{ vm.topCoupon || 'N/A'}}
+							{{ vm.alertCards.topCoupon || 'N/A'}}
 						</div>
 					</div>
 				</div>
@@ -85,7 +85,7 @@
 							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='text value'>
-							{{ vm.hotAreas }}
+							{{ vm.alertCards.hotAreas }}
 						</div>
 					</div>
 				</div>

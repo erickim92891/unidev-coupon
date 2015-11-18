@@ -4,6 +4,7 @@
 	angular
 		.module ('dashboard', [
 			'app.core',
-			'chart.js'
+			'chart.js',
+			'uiGmapgoogle-maps'
 		]);
 }) ();

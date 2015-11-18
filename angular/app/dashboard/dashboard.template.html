@@ -3,16 +3,48 @@
 	<dashboard-alert-cards></dashboard-alert-cards>
 	<div class='ui grid'>
 		<div class='sixteen wide column'>
+			<div class='ui horizontal divider'>Coupon Map : {{ vm.time.getCurrentTime () }}</div>
+			<div class='ui raised segment'>
+				<ui-gmap-google-map center='vm.redeemedCouponsMap.position.center'
+						zoom='vm.redeemedCouponsMap.zoom'
+						options='vm.redeemedCouponsMap.options'
+						control='vm.redeemedCouponsMap.control'>
+					<ui-gmap-markers models="vm.redeemedCouponsMap.markers"
+							coords="'address'"
+							idKey="'$id'"
+							doCluster="true">
+						<ui-gmap-windows show="window.show">
+							<div ng-non-bindable>
+								<h3>{{ coupon }}</h3>
+								<p>{{ address.street_num }} {{ address.street }} {{ address.city }}, {{ address.state }}, {{ address.zip }}</p>
+								<br />
+								{{ timeRedeemed | date:'medium'}}
+							</div>
+			            </ui-gmap-windows>
+					</ui-gmap-markers>
+				</ui-gmap-google-map>
+				 <a class="ui right corner label" id='refresh-icon-btn' ng-click='vm.redeemedCouponsMap.refresh ()'>
+					<i class="refresh icon"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+				
+	<div class='ui grid'>
+		<div class='sixteen wide column'>
 			<div class='ui horizontal divider'>{{ vm.couponsRedeemedGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
 			<div class='ui raised teal segment'>
 				<canvas id="line" class="chart chart-line" chart-data="vm.couponsRedeemedGraph.getData ()"
 				  chart-labels="vm.couponsRedeemedGraph.getLabels ()">
 				</canvas> 
 			</div>
+			<widget-loader 	loader-text="'Loading'"
+							loader-active="vm.topCouponGraph.active"
+							loader-inverted="true"
+							loader-size="'large'">
+			</widget-loader>
 		</div>
 	</div>
-	
-
 	<div class='ui two column stackable grid'>
 		<div class=' wide column'>
 			<div class='ui horizontal divider'>{{ vm.topCouponGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
@@ -21,6 +53,10 @@
 					chart-data="vm.topCouponGraph.getData ()" chart-labels="vm.topCouponGraph.getLabels ()">
 				</canvas> 
 			</div>
+			<widget-loader 	loader-text="'Loading'"
+							loader-active="vm.topCouponGraph.active"
+							loader-inverted="true">
+			</widget-loader>
 		</div>
 		<div class=' wide column'>
 			<div class='ui horizontal divider'>{{ vm.hotAreasGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
@@ -29,14 +65,16 @@
 					chart-data="vm.hotAreasGraph.getData ()" chart-labels="vm.hotAreasGraph.getLabels ()" chart-legend="true">
 				</canvas> 
 			</div>
+			<widget-loader 	loader-text="'Loading'"
+							loader-active="vm.hotAreasGraph.active"
+							loader-inverted="true">
+			</widget-loader>
 		</div>
 	</div>
-
 	<div id="coupons">
 		<h1>{{ vm.coupons.length }}</h1>
 		<p ng-repeat="coupon in vm.coupons">
 			{{ coupon.coupon }} | {{ coupon.timeRedeemed }} | {{ coupon.address }}
 		</p>
-		
 	</div>
 </div>

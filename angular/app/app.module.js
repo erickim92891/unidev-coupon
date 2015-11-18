@@ -16,6 +16,7 @@
 			'templates',
 			'app.graphs',
 			'app.widgets',
-			'app.maps'
+			'app.maps',
+			'uiGmapgoogle-maps'
 		]);
 }) ();
