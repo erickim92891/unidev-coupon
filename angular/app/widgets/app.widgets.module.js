@@ -15,6 +15,7 @@
 			'widgets.dropdown',
 			'widgets.form',
 			'widgets.abbreviate',
-			'widgets.loader'
+			'widgets.loader',
+			'widgets.popup'
 		]);
 }) ();
