@@ -52,8 +52,8 @@
 						<div class='label'>
 							{{ vm.time.getCurrentTime () }}
 						</div>
-						<div class='text value'>
-							{{ vm.alertCards.topCoupon || 'N/A'}}
+						<div class='text value' widget-popup data-content="{{ vm.alertCards.topCouponDescription.description }}">
+							{{ vm.alertCards.topCoupon || 'N/A' | abbreviate:10 }}
 						</div>
 					</div>
 				</div>
@@ -85,7 +85,8 @@
 							{{ vm.time.getCurrentTime () }}
 						</div>
 						<div class='text value'>
-							{{ vm.alertCards.hotAreas }}
+							{{ vm.alertCards.hotArea.city || 'N/A' | abbreviate:10 }}
+							{{ vm.alertCards.hotArea.zip }}
 						</div>
 					</div>
 				</div>
