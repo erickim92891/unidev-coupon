@@ -32,7 +32,10 @@
                 return NumberAbbreviate ().abbreviate (value, option);
             }
             else if (_.isString (value)) {
+                option = (_.isNumber (option)) ? option : 5;
+                var newString = value.slice (0, option);
                 
+                return (value.length > option) ? newString  + '...' : newString;
             }
             return null;
         }
