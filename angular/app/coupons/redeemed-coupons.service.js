@@ -80,7 +80,7 @@
             // Get the list of areas (city, zip) along with its redeemed count
             redeemedAreas: function () {
                 return _.countBy (this.$list, function (redeemed) {
-                    return redeemed.address.city + ', ' + redeemed.address.zip;
+                    return redeemed.address.city + ' ' + redeemed.address.zip;
                 });
             },
             // Get a list of coupons grouped by the current time range
