@@ -12,15 +12,17 @@
 		'$scope',
 		'_',
 		'Graph',
-		'uiGmapGoogleMapApi'
+		'uiGmapGoogleMapApi',
+		'Coupons'
 	];
 	
 	function Dashboard ($time, $timeConstant, RedeemedCoupons, $scope, 
-			_, Graph, uiGmapGoogleMapApi) {
+			_, Graph, uiGmapGoogleMapApi, Coupons) {
 		var vm = this;
 
 		// Time Service
 		vm.time = $time;
+		vm.coupons = Coupons;
 		
 		// Map data
 		vm.redeemedCouponsMap = {
@@ -65,33 +67,34 @@
 		vm.alertCards = {};
 		
 		// Redeemed Coupons
-		vm.coupons = RedeemedCoupons ($timeConstant.TODAY);
+		vm.redeemedCoupons = RedeemedCoupons ($timeConstant.TODAY);
 		
 		// Check for changes in the time
 		$scope.$watch (function () {
 			return $time.getCurrentTime ();
 		// Destroy current list of Redeemed Coupons and re-initialize
 		}, function (newTime) {
-			vm.coupons.$destroy ();
-			vm.coupons = RedeemedCoupons (newTime);
+			vm.redeemedCoupons.$destroy ();
+			vm.redeemedCoupons = RedeemedCoupons (newTime);
 		});
 		
 		// Look for changes in the Redeemed Coupons
 		$scope.$watch (function () {
-			return vm.coupons;
+			return vm.redeemedCoupons;
 		// Re-initialize graphs and alert cards
 		}, function () {
 			startLoaders ();
-			vm.coupons.$loaded (function (redeemedCoupons) {
+			vm.redeemedCoupons.$loaded (function (redeemedCoupons) {
 				// Should ONLY be executed after vm.coupons is completely loaded
 				init ();
 				vm.redeemedCouponsMap.markers = redeemedCoupons;
-				vm.coupons.$watch (function (event) {
+				vm.redeemedCoupons.$watch (function (event) {
 					init ();
 				});
 			});
 		});
 		
+		// Initialize dashboard data
 		function init () {
 			initDashboardAlertCards ();
 			initCouponsRedeemedGraph ();
@@ -99,18 +102,27 @@
 			initHotAreasGraph ();
 		}
 		
+		// Initialize dashboard data for alert cards
 		function initDashboardAlertCards () {
-			vm.alertCards.numRedeemed = vm.coupons.count ();
-			vm.alertCards.topCoupon = vm.coupons.topCoupon ();
-			vm.alertCards.hotAreas = vm.coupons.hotArea ();
+			vm.alertCards.numRedeemed = vm.redeemedCoupons.count ();
+			vm.alertCards.topCoupon = vm.redeemedCoupons.topCoupon ();
+			vm.alertCards.topCouponDescription = Coupons.findCoupons (vm.alertCards.topCoupon);
+			
+			var hotArea = vm.redeemedCoupons.hotArea ().split (' ');
+			vm.alertCards.hotArea = {
+				city: hotArea[0],
+				zip: hotArea[1]
+			};
+			
 			vm.alertCards.active = false;
 		}
 		
+		// Initialize CouponsRedeemedGraph object
 		function initCouponsRedeemedGraph () {
 			vm.couponsRedeemedGraph.setLabels ($time.generateCurrentTimeRange ());
 			vm.couponsRedeemedGraph.setData (function () {
 				var data = [];
-				var groupedData = vm.coupons.groupByCurrentTime ();
+				var groupedData = vm.redeemedCoupons.groupByCurrentTime ();
 				
 				_.each (groupedData, function (group) {
 					data.push (group.length);
@@ -122,16 +134,18 @@
 			vm.couponsRedeemedGraph.active = false;
 		}
 		
+		// Initialize TopCouponGraph object
 		function initTopCouponGraph () {
-			var redeemedCoupons = vm.coupons.redeemedCoupons();
+			var redeemedCoupons = vm.redeemedCoupons.redeemedCoupons();
 			vm.topCouponGraph.setLabels (_.keys (redeemedCoupons));
 			vm.topCouponGraph.setData (_.values (redeemedCoupons));
 			
 			vm.topCouponGraph.active = false;
 		}
 		
+		// Initialize HotAreaGraph object
 		function initHotAreasGraph () {
-			var redeemedCoupons = vm.coupons.hotAreas (5);
+			var redeemedCoupons = vm.redeemedCoupons.hotAreas (5);
 			var labels = [];
 			var data = [];
 			
