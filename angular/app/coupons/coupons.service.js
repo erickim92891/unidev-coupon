@@ -9,12 +9,12 @@
     
     angular
         .module ('coupons')
-        .factory ('$coupons', Coupons);
+        .factory ('Coupons', Coupons);
     
     // Dependencies
     Coupons.$inject = [
         '$unidevFirebase',
-        '$firebaseArray',
+        '$firebaseObject',
         '$time'
     ];
     
@@ -24,7 +24,7 @@
 	 *
 	 * @memberof Application.Coupon.Factory
 	 */
-    function Coupons ($unidevFirebase, $firebaseArray, Firebase, $time, $timeConstant) {
+    function Coupons ($unidevFirebase, $firebaseObject, Firebase, $time, $timeConstant) {
         return {
             getCouponsRef: GetCouponsRef,
             findCoupons: FindCoupons
@@ -36,10 +36,14 @@
         }
         
         // Returns a $firebaseArray wrapper around the Coupon Firebase reference
-        function FindCoupons () {
+        function FindCoupons (ref) {
             var coupons = GetCouponsRef ();
             
-            return $firebaseArray (coupons); 
+            if (ref) {
+                coupons = coupons.child (ref);
+            }
+            
+            return $firebaseObject (coupons); 
         }
     }
 }) ();
