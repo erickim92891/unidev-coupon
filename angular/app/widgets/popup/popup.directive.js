@@ -28,7 +28,6 @@
 		 * @desc Invoke the Semantic UI dropdown function on the directive element
 		 */
 		function Link ($scope, $element, $attrs) {
-		    console.log ($attrs);
 			// Semantic UI dropdown
 			$element.popup ($attrs);
 		}
