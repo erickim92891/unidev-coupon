@@ -1,14 +1,14 @@
 #dashboard {
 	padding-top: 100px;
 }
-.angular-google-map-container { 
+#dashboard .angular-google-map-container { 
     height: 500px; 
     width: 100%;
     border-radius: 0.28571429rem;
     -moz-border-radius: 0.28571429rem;
     -webkit-border-radius: 0.28571429rem;
 }
-#refresh-icon-btn i {
+#dashboard #refresh-icon-btn i {
     overflow: hidden;
     cursor: pointer;
 }
