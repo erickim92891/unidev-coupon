@@ -136,9 +136,17 @@
 		
 		// Initialize TopCouponGraph object
 		function initTopCouponGraph () {
-			var redeemedCoupons = vm.redeemedCoupons.redeemedCoupons();
-			vm.topCouponGraph.setLabels (_.keys (redeemedCoupons));
-			vm.topCouponGraph.setData (_.values (redeemedCoupons));
+			var redeemedCoupons = vm.redeemedCoupons.topCoupons (5);
+			var labels = [];
+			var data = [];
+			
+			_.each (redeemedCoupons, function (pair) {
+				labels.push (pair[0]);
+				data.push (pair[1]);
+			});
+			
+			vm.topCouponGraph.setLabels (labels);
+			vm.topCouponGraph.setData (data);
 			
 			vm.topCouponGraph.active = false;
 		}
