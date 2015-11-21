@@ -16,7 +16,7 @@
 							ten wide large screen
 							ten wide widescreen
 							column'>
-					<div class='ui statistic'>
+					<div class='ui statistic' ng-hide="vm.alertCards.active">
 						<div class='label'>
 							{{ vm.time.getCurrentTime () }}
 						</div>
@@ -24,9 +24,13 @@
 							{{ vm.alertCards.numRedeemed || 0 | abbreviate:1 }}
 						</div>
 					</div>
+					<widget-loader 	loader-text="'Loading'"
+							loader-active="vm.alertCards.active"
+							loader-inverted="true">
+					</widget-loader>
 				</div>
 				<div class="ui bottom attached inverted secondary segment">
-					<a class="ui teal right ribbon label">SEE ALL <i class='angle right icon'></i></a>
+					<a class="ui teal right ribbon label">VIEW <i class='angle right icon'></i></a>
 				</div>
 			</div>
 		</div>
@@ -48,17 +52,23 @@
 							ten wide large screen
 							ten wide widescreen
 							column'>
-					<div class='ui statistic'>
+					<div class='ui statistic' ng-hide="vm.alertCards.active">
 						<div class='label'>
 							{{ vm.time.getCurrentTime () }}
 						</div>
-						<div class='text value' widget-popup data-content="{{ vm.alertCards.topCouponDescription.description }}">
+						<div class='text value' widget-popup 
+								data-content="{{ vm.alertCards.topCouponDescription.description }}"
+								position="top center">
 							{{ vm.alertCards.topCoupon || 'N/A' | abbreviate:10 }}
 						</div>
 					</div>
+					<widget-loader 	loader-text="'Loading'"
+							loader-active="vm.alertCards.active"
+							loader-inverted="true">
+					</widget-loader>
 				</div>
 				<div class="ui bottom attached inverted secondary segment">
-					<a class="ui yellow right ribbon label">SEE ALL <i class='angle right icon'></i></a>
+					<a class="ui yellow right ribbon label">VIEW <i class='angle right icon'></i></a>
 				</div>
 			</div>
 		</div>
@@ -80,7 +90,7 @@
 							ten wide large screen
 							ten wide widescreen
 							column'>
-					<div class='ui statistic'>
+					<div class='ui statistic' ng-hide="vm.alertCards.active">
 						<div class='label'>
 							{{ vm.time.getCurrentTime () }}
 						</div>
@@ -89,9 +99,13 @@
 							{{ vm.alertCards.hotArea.zip }}
 						</div>
 					</div>
+					<widget-loader 	loader-text="'Loading'"
+							loader-active="vm.alertCards.active"
+							loader-inverted="true">
+					</widget-loader>
 				</div>
 				<div class="ui bottom attached inverted secondary segment">
-					<a class="ui blue right ribbon label">SEE ALL <i class='angle right icon'></i></a>
+					<a class="ui blue right ribbon label">VIEW <i class='angle right icon'></i></a>
 				</div>
 			</div>
 		</div>
