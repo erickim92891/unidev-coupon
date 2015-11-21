@@ -47,6 +47,19 @@
                 }
                 return null;
             },
+            topCoupons: function (top) {
+                if (this.$list && this.$list.length) {
+                    top = (_.isUndefined (top) || !_.isNumber (top)) ? this.$list.length : top; 
+                    var couponCounter = _.pairs (this.redeemedCoupons ());
+                    var topCoupons = couponCounter.sort (function (left, right) {
+                        return left[1] - right[1];
+                    }).reverse ();
+                    
+                    return topCoupons.slice (0, top);
+                }
+                
+                return null;
+            },
             // Get the area (city, zip) w/ the most redeemed coupons
             hotArea: function () {
                 var hotAreas = this.hotAreas ();
