@@ -8,7 +8,7 @@
     'use strict';
     
     angular
-        .module ('coupons')
+        .module ('redeemedCoupons')
         .factory ('RedeemedCoupons', Redeemed);
     
     // Dependencies

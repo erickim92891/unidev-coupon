@@ -13,6 +13,7 @@
 			'logout',
 			'dashboard',
 			'coupons',
+			'redeemedCoupons',
 			'templates',
 			'app.graphs',
 			'app.widgets',
