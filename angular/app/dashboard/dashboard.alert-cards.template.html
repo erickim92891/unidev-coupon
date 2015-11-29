@@ -59,7 +59,7 @@
 						<div class='text value' widget-popup 
 								data-content="{{ vm.alertCards.topCouponDescription.description }}"
 								position="top center">
-							{{ vm.alertCards.topCoupon || 'N/A' | abbreviate:10 }}
+							{{ vm.alertCards.topCoupon || 'N/A' | abbreviate:9 }}
 						</div>
 					</div>
 					<widget-loader 	loader-text="'Loading'"
@@ -96,6 +96,7 @@
 						</div>
 						<div class='text value'>
 							{{ vm.alertCards.hotArea.city || 'N/A' | abbreviate:10 }}
+							<br />
 							{{ vm.alertCards.hotArea.zip }}
 						</div>
 					</div>
