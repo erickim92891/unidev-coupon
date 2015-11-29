@@ -29,7 +29,7 @@
 		 */
 		function Link ($scope, $element, $attrs) {
 			// Semantic UI dropdown
-			$element.dropdown ();
+			$element.dropdown ($attrs);
 		}
 	}
 }) ();
