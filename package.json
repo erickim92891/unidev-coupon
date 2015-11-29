@@ -30,6 +30,7 @@
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
     "main-bower-files": "^2.9.0",
+    "moment": "^2.10.6",
     "require-dir": "^0.3.0",
     "yargs": "^3.29.0"
   },
