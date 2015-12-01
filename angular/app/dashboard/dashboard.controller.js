@@ -59,7 +59,7 @@
 		vm.topCouponGraph = new Graph ();
 		vm.hotAreasGraph = new Graph ();
 		// Initialize Graph names
-		vm.couponsRedeemedGraph.setName ('Coupons Redeemed');
+		vm.couponsRedeemedGraph.setName ('Redeemed Coupons');
 		vm.topCouponGraph.setName ('Coupon Count');
 		vm.hotAreasGraph.setName ('Hot Areas');
 		
