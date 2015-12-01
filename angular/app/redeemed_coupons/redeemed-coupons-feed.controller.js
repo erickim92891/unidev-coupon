@@ -9,10 +9,11 @@
         '$scope',
         'RedeemedCouponsFeed',
         'Coupons',
-        'moment'
+        'moment',
+        '_'
     ];
     
-    function FeedCtrl ($scope, RedeemedCouponsFeed, Coupons, moment) {
+    function FeedCtrl ($scope, RedeemedCouponsFeed, Coupons, moment, _) {
         var limit = 10;
         var  vm = this;
         
@@ -28,7 +29,8 @@
         vm.findAddress = FindAddress;
         
         function FindCouponDescription (couponId) {
-            return vm.coupons[couponId].description;
+
+            return (_.isUndefined (vm.coupons[couponId])) ? 'n/a' : vm.coupons[couponId].description;
         }
         
         function FindTimeRedeemed (timeRedeemed) {
