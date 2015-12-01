@@ -1,16 +1,16 @@
 <div class="ui card" ng-repeat='coupon in vm.redeemedCoupons.slice ().reverse ()'>
     <div class="content">
         <div class="header">{{ vm.findCouponDescription (coupon.coupon) }}</div>
-        <div class="meta">
-            <span>{{ vm.findTimeRedeemed (coupon.timeRedeemed) }}</span>
+        <div class="meta" widget-popup data-content="{{ vm.findTimeRedeemed (coupon.timeRedeemed) }}">
+            <span>{{ vm.findTimeRedeemedFromNow (coupon.timeRedeemed) }}</span>
         </div>
         <br />
         <p>{{ vm.findAddress (coupon.address) }}</p>
     </div>
     <div class='extra content'>
-        <span class='left floated'>
-            <i class='star icon'></i>
-            {{ 512383 }}
+        <span class='right floated'>
+            <i class='star icon' widget-popup data-content='Total number of times redeemed.'></i>
+            {{ vm.findCounter (coupon.coupon) }}
         </span>
     </div>
 </div>

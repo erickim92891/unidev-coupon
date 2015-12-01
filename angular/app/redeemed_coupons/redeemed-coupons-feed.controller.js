@@ -20,26 +20,32 @@
         vm.redeemedCoupons = RedeemedCouponsFeed (limit);
         vm.coupons = Coupons.findCoupons ();
         
-        vm.redeemedCoupons.$loaded (function (coupons) {
-            console.log (coupons);
-        });
-        
         vm.findCouponDescription = FindCouponDescription;
         vm.findTimeRedeemed = FindTimeRedeemed;
+        vm.findTimeRedeemedFromNow = FindTimeRedeemedFromNow;
         vm.findAddress = FindAddress;
+        vm.findCounter = FindCounter;
         
         function FindCouponDescription (couponId) {
 
             return (_.isUndefined (vm.coupons[couponId])) ? 'n/a' : vm.coupons[couponId].description;
         }
         
-        function FindTimeRedeemed (timeRedeemed) {
+        function FindTimeRedeemedFromNow (timeRedeemed) {
             return moment (timeRedeemed).fromNow ();
+        }
+        
+        function FindTimeRedeemed (timeRedeemed) {
+            return moment (timeRedeemed).format ('YYYY-MM-DD h:mm a');
         }
         
         function FindAddress (address) {
             return address.street_num + ' ' + address.street + ' ' +
                 address.city + ', ' + address.state + ', ' + address.zip;
+        }
+        
+        function FindCounter (couponId) {
+            return (_.isUndefined (vm.coupons[couponId])) ? 'n/a' : vm.coupons[couponId].counter;
         }
     }
 }) ();
