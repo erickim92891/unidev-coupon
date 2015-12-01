@@ -18,6 +18,7 @@ var globals = require ('../config/globals.js');
 var Firebase = require ('firebase');
 var firebaseRef = new Firebase (globals.firebase);
 var couponsRedeemedRef = firebaseRef.child ('redeemed_coupons');
+var couponsRef = firebaseRef.child ('coupons');
 
 // Module for generating random data
 var Chance = require ('chance');
@@ -44,14 +45,30 @@ gulp.task ('generate-redeemed-coupons', Generate);
  */
 function Generate (callback) {
     var defer = q.defer ();
+    var couponRefs = [];
     
     var count = GetCount ();
+    var coupon = '';
+    var timeRedeemed = 0;
+    var address = '';
     
 	for (var i = 0; i < count; i++) {
+	    coupon = GenerateRandomCoupon();
+	    timeRedeemed = GetTimestamp();
+	    address = GenerateRandomAddress ();
+	    
+	    if (!couponRefs[coupon]) {
+	        couponRefs[coupon] = couponsRef.child (coupon + "/counter");
+	    }
+	    
         couponsRedeemedRef.push ({
-          coupon: GenerateRandomCoupon (),
-          timeRedeemed: GetTimestamp (),
-          address: GenerateRandomAddress ()
+          coupon: coupon,
+          timeRedeemed: timeRedeemed,
+          address: address
+        });
+        
+        couponRefs[coupon].transaction (function (counter) {
+            return (counter || 0) + 1;
         });
 	};
 	
