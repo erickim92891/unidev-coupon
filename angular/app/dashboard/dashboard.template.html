@@ -30,7 +30,7 @@
 		</div>
 	</div>	
 	<div class='ui grid'>
-		<div class='sixteen wide column'>
+		<div class='sixteen wide column'  id='graph-redeemed-coupons'>
 			<div class='ui horizontal divider'>{{ vm.couponsRedeemedGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
 			<div class='ui raised teal segment'>
 				<canvas id="line" class="chart chart-line" chart-data="vm.couponsRedeemedGraph.getData ()"
@@ -46,7 +46,7 @@
 	</div>
 	<div class ='ui grid'>
 		<div class='ui two column equal height row'>
-			<div class='column'>
+			<div class='column'  id='graph-top-coupon'>
 				<div class='ui horizontal divider'>{{ vm.topCouponGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
 				<div class='ui raised yellow segment'>
 					<canvas id="bar" class="chart chart-polar-area" chart-legend="true"
@@ -58,7 +58,7 @@
 								loader-inverted="true">
 				</widget-loader>
 			</div>
-			<div class='column'>
+			<div class='column'  id='graph-hot-areas'>
 				<div class='ui horizontal divider'>{{ vm.hotAreasGraph.getName () }} : {{ vm.time.getCurrentTime () }}</div>
 				<div class='ui raised blue segment'>
 					<canvas id="doughnut" class="chart chart-doughnut"

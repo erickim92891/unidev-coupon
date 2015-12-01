@@ -5,6 +5,7 @@
 		.module ('dashboard', [
 			'app.core',
 			'chart.js',
-			'uiGmapgoogle-maps'
+			'uiGmapgoogle-maps',
+			'smoothScroll'
 		]);
 }) ();
