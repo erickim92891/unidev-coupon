@@ -16,6 +16,7 @@
 			'widgets.form',
 			'widgets.abbreviate',
 			'widgets.loader',
-			'widgets.popup'
+			'widgets.popup',
+			'widgets.sticky'
 		]);
 }) ();
