@@ -1,4 +1,4 @@
-<div class="ui fixed inverted menu">
+<div class="ui fixed inverted menu" id='widget-user-navbar'>
 	<div class="ui container">
 		<div ui-sref="dashboard" class="header item">
 			<i class='large circular teal dashboard icon'></i> Dashboard
@@ -6,10 +6,21 @@
 		<a class="browse item" widget-popup inline='true' position='bottom left' on='click'>
 			<i class="feed icon" style='margin: 0 !important;'></i>
 		</a>
-		<div class="ui popup bottom left transition hidden" style="top: 554px; left: 1px; bottom: auto; right: auto; width: auto; max-height: 300px; overflow-y: scroll">
-			<div class="ui one column grid">
-				<div class="column">
-					<redeemed-coupons-feed></redeemed-coupons-feed>
+		<div class="ui popup bottom left transition hidden segments" id='redeemed-coupon-feed-popup'>
+			<div class='ui raised black segment'>
+				<h4 class="ui header">
+					<i class="feed icon"></i>
+					<div class="content">
+						Coupon Feed
+					</div>
+				</h4>
+			</div>
+			<div class='ui segment' id='redeemed-coupon-feed-cards'>
+				<div class="ui one column grid">
+					<div class="column">
+						<div class='ui sub header'>Activity</div>
+						<redeemed-coupons-feed></redeemed-coupons-feed>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,12 @@
+#widget-user-navbar #redeemed-coupon-feed-popup {
+    top: 554px;
+    left: 1px;
+    bottom: auto;
+    right: auto;
+    width: auto;
+}
+
+#widget-user-navbar #redeemed-coupon-feed-cards {
+    max-height: 300px;
+    overflow-y: scroll;
+}
