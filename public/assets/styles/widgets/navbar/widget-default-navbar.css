@@ -1,12 +1,4 @@
 #widget-default-navbar {
 	height: 70px;
-	z-index: 9999 !important;
-}
-
-widget-user-navbar {
-	z-index: 9999 !important;
-}
-
-widget-user-navbar div {
-	z-index: 9999 !important;
+	z-index: 9000 !important;
 }

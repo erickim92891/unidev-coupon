@@ -12,3 +12,7 @@ body, #main-view-container {
 [ui-sref] {
 	cursor: pointer
 }
+
+.ui.popup {
+	z-index: 9999;
+}

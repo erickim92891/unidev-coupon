@@ -1,9 +1,14 @@
+#widget-user-navbar {
+    height: 70px;
+}
+
 #widget-user-navbar #redeemed-coupon-feed-popup {
     top: 554px;
     left: 1px;
     bottom: auto;
     right: auto;
     width: auto;
+    z-index: 9000 !important;
 }
 
 #widget-user-navbar #redeemed-coupon-feed-cards {
