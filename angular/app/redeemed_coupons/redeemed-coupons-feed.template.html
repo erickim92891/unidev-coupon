@@ -10,7 +10,7 @@
     <div class='extra content'>
         <span class='right floated'>
             <i class='star icon' widget-popup data-content='Total number of times redeemed.'></i>
-            {{ vm.findCounter (coupon.coupon) }}
+            {{ vm.findCounter (coupon.coupon) | abbreviate:1 }}
         </span>
     </div>
 </div>

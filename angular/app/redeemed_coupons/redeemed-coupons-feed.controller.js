@@ -45,7 +45,7 @@
         }
         
         function FindCounter (couponId) {
-            return (_.isUndefined (vm.coupons[couponId])) ? 'n/a' : vm.coupons[couponId].counter;
+            return (_.isUndefined (vm.coupons[couponId])) ? 0 : vm.coupons[couponId].counter;
         }
     }
 }) ();
